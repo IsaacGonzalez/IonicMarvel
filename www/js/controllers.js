@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
     limit : "10"
   };
 
-  var params = "?" + $.param(data);
+  var params = "?" + jQuery.param(data);
 
   $http.get(characters_url + params).
   success(function(data, status, header, config){
@@ -78,12 +78,11 @@ angular.module('starter.controllers', [])
   var public_key = "0f3ada3d3a88add4430fa9b49de33558";
   var private_key = "8e65faa79eaa382e9a6b215cb545b5ec06d4afb5";
 
-  var characters_url = "http://gateway.marvel.com/v1/public/characters/1011334";
+  var characters_url = "http://gateway.marvel.com/v1/public/characters/" + $stateParams.playlistId;
 
   var hash = md5(timestamp.toString() + private_key + public_key);
 
   var data = {
-    id : $stateParams.playlistId,
     ts : timestamp,
     apikey : public_key,
     hash : md5(timestamp.toString() + private_key + public_key),
