@@ -1,0 +1,15 @@
+<ion-view view-title="Inicio">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="superheroe in superheroes" href="#/app/playlists/{{superheroe.id}}">
+        {{superheroe.name}}
+      </ion-item>
+    </ion-list>
+
+    <!-- <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

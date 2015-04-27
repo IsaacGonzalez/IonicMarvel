@@ -61,7 +61,6 @@ marvelApp.service('apiMarvelCharactersService', ['$http', '$log', 'apiMarvelConf
 }]);
 
 
-
 marvelApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     // Form data for the login modal
     $scope.loginData = {};
@@ -87,6 +86,7 @@ marvelApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     $scope.doLogin = function() {
         console.log('Doing login', $scope.loginData);
 
+
         // Simulate a login delay. Remove this and replace with your login
         // code if using a login system
         $timeout(function() {
@@ -95,11 +95,13 @@ marvelApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     };
 });
 
+
 marvelApp.controller('PlaylistsCtrl', ['$scope', '$http', '$log', 'apiMarvelCharactersService', function($scope, $http, $log, apiMarvelCharactersService) {
 
     $scope.superheroes = [];
     // apiMarvelCharactersService.getTopTenCharacters($scope.superheroes);
     $scope.refreshTopTenSuperHeroes = function() {
+
 
         // The friendService returns a promise.
         apiMarvelCharactersService.getTopTenCharacters().then(function(superheroes) {
