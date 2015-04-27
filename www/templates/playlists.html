@@ -1,7 +1,7 @@
 <ion-view view-title="Playlists">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="superheroe in superheroes" >
+      <ion-item ng-repeat="superheroe in superheroes" href="#/app/playlists/{{superheroe.id}}">
         {{superheroe.name}}
       </ion-item>
     </ion-list>

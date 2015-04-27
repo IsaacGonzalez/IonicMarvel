@@ -56,9 +56,11 @@ angular.module('starter.controllers', [])
 
   $http.get(characters_url + params).
   success(function(data, status, header, config){
-    $log.log(data);
+    $log.log(data.data.results);
     $log.log("status " + status);
     $log.log(config);
+
+    $scope.superheroes = data.data.results;
   }).
   error(function(data, status, header, config){
     $log.log(data);
@@ -69,5 +71,41 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PlaylistCtrl', function($scope, $stateParams, $http, $log) {
+
+  var superheroes = [];
+  var timestamp = Date.now();
+  var public_key = "0f3ada3d3a88add4430fa9b49de33558";
+  var private_key = "8e65faa79eaa382e9a6b215cb545b5ec06d4afb5";
+
+  var characters_url = "http://gateway.marvel.com/v1/public/characters/1011334";
+
+  var hash = md5(timestamp.toString() + private_key + public_key);
+
+  var data = {
+    id : $stateParams.playlistId,
+    ts : timestamp,
+    apikey : public_key,
+    hash : md5(timestamp.toString() + private_key + public_key),
+    limit : "10"
+  };
+
+  $log.info($stateParams)
+
+  var params = "?" + $.param(data);
+
+  $http.get(characters_url + params).
+  success(function(data, status, header, config){
+    $log.log(data.data);
+    $log.log("status " + status);
+    $log.log(config);
+
+    $scope.superheroe = data.data.results[0];
+  }).
+  error(function(data, status, header, config){
+    $log.log(data);
+    $log.log("status " + status);
+    $log.log(config);
+  });
+
 });
