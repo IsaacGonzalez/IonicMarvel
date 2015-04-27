@@ -35,7 +35,7 @@ marvelApp.service('apiMarvelCharactersService', ['$http', '$log', 'apiMarvelConf
             ts: apiMarvelConfigService.marvelTimeStamp,
             apikey: apiMarvelConfigService.marvelPublicKey,
             hash: apiMarvelConfigService.marvelHash,
-            limit: "10"
+            limit: "1"
         };
 
         var params = "?" + $.param(data);
