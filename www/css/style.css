@@ -1,1 +1,39 @@
 /* Empty. Add your own CSS if you like */
+body{
+	background:url(http://cdn.screenrant.com/wp-content/uploads/marvel-logo-wallpaper.jpg) ;
+}
+
+.item-without-border{
+}
+.item-without-border a{
+	  padding: 0 !important;
+}
+.item-without-border a img{
+width: 100%;
+}
+
+.bar-stable{
+	background: url(http://cdn.screenrant.com/wp-content/uploads/marvel-logo-wallpaper.jpg)!important ;background-position: center!important ;background-size: 900px!important ;
+}
+.bar.bar-stable .title{
+	color: white !important;
+}
+.bar-stable .button.button-clear
+{
+	color: white !important;
+}
+.item-menu-side{
+	background-color: transparent;
+	border: none;
+}
+
+.item-menu-side a{ 
+	background-color: transparent !important;
+	color: white;
+}
+.side-menu{
+		background: url(http://z2.cheggcdn.com/sites/default/files/webform/2014/02/01/15432782_52ed3ae36c508_10.jpg)!important ;
+		background-position: center!important ;
+		background-size: 1200px!important ;
+
+}
