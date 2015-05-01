@@ -51,6 +51,38 @@ marvelApp.controller('PlaylistsCtrl', ['$scope', '$http', '$log', 'apiMarvelChar
     $scope.refreshTopTenSuperHeroes();
 
 }]);
+marvelApp.controller('BrowseCtrl', ['$scope', '$http', '$log', 'apiMarvelCharactersService', function($scope, $http, $log, apiMarvelCharactersService) {
+
+    $scope.refreshComic = function() {
+
+        apiMarvelCharactersService.getComic(51630).then(function(comic) {
+            $scope.comicBrowse1 = comic[0];
+        });
+        apiMarvelCharactersService.getComic(51808).then(function(comic) {
+            $scope.comicBrowse2 = comic[0];
+        });
+        apiMarvelCharactersService.getComic(52459).then(function(comic) {
+            $scope.comicBrowse3 = comic[0];
+        });
+        apiMarvelCharactersService.getComic(51855).then(function(comic) {
+            $scope.comicBrowse4 = comic[0];
+        });
+        apiMarvelCharactersService.getComic(51972).then(function(comic) {
+            $scope.comicBrowse5 = comic[0];
+        });
+        apiMarvelCharactersService.getComic(51538).then(function(comic) {
+            $scope.comicBrowse6 = comic[0];
+        });
+        apiMarvelCharactersService.getComic(51801).then(function(comic) {
+            $scope.comicBrowse7 = comic[0];
+        });
+        apiMarvelCharactersService.getComic(47113).then(function(comic) {
+            $scope.comicBrowse8 = comic[0];
+        });
+    }
+    $scope.refreshComic();
+
+}]);
 
 marvelApp.controller('PlaylistCtrl',['$scope', '$http', '$log','$stateParams', 'apiMarvelCharactersService', function($scope, $http, $log,$stateParams, apiMarvelCharactersService){
     // apiMarvelCharactersService.getTopTenCharacters($scope.superheroes);

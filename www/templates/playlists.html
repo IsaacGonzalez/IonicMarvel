@@ -1,4 +1,5 @@
 <ion-view view-title="Inicio">
+<<<<<<< HEAD
   
 
 <style>
@@ -50,40 +51,29 @@ background-size: cover;
       </ion-slide>
     </ion-slide-box>
 
-    <ion-list>
-      <ion-item ng-repeat="superheroe in superheroes" href="#/app/playlists/{{superheroe.id}}">
-        
-        <div class="list card">
-
-          <div class="item ">
-            <h2>{{superheroe.name}}</h2>
-          </div>
-
-          <div class="item item-image">
-            <img src="{{superheroe.thumbnail.path + '.'+ superheroe.thumbnail.extension}}">
-          </div>
-
-          <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item" href="#">
-              <i class="icon ion-heart"></i>
-              Me gusta
-            </a>
-            <a class="tab-item" href="#">
-              <i class="icon ion-plus-round"></i>
-              Ver Más
-            </a>
-            <a class="tab-item" href="#">
-              <i class="icon ion-share"></i>
-              Compartir
-            </a>
-          </div>
-        </div>
-
-
-        
-      </ion-item>
-    </ion-list>
-
-
-  </ion-content>
+   
+        <ion-list>
+            <ion-item ng-repeat="superheroe in superheroes" href="#/app/playlists/{{superheroe.id}}">
+                <div class="list card">
+                    <div class="item ">
+                        <h2>{{superheroe.name}}</h2>
+                    </div>
+                    <div class="item item-image">
+                        <img src="{{superheroe.thumbnail.path + '.'+ superheroe.thumbnail.extension}}">
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-heart"></i> Me gusta
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-plus-round"></i> Ver Más
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-share"></i> Compartir
+                        </a>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
