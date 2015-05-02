@@ -1,24 +1,61 @@
 <ion-view view-title="{{superheroe.name}}">
     <ion-content>
         <div class="list card">
-            <div class="item item-avatar">
+            <div class="item item-avatar" ng-if="superheroe.thumbnail" >
                 <img src="{{superheroe.thumbnail.path + '.'+ superheroe.thumbnail.extension}}">
                 <h2>{{superheroe.name}}</h2>
                 <p>Ultima actualización: {{superheroe.modified  | date: 'dd/mm/yyyy' }}</p>
             </div>
-            <div class="item item-body">
+            <div class="item" ng-if="!superheroe.thumbnail" >
+                <h2>{{superheroe.name}}</h2>
+                <p>Ultima actualización: {{superheroe.modified  | date: 'dd/mm/yyyy' }}</p>
+            </div>
+            <div class="item item-body" ng-if="superheroe.description != '' " >
                 <p>
                     {{superheroe.description}}
                 </p>
             </div>
             <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" href="#">
-                    <i class="icon ion-thumbsup"></i> Like
+                <a class="tab-item" href="{{superheroe.urls[0].url}}">
+                    <i class="icon ion-information-circled"></i> Info
                 </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-share"></i> Share
+                <a class="tab-item" href="{{superheroe.urls[1].url}}">
+                    <i class="icon ion-share"></i> Wiki
                 </a>
+                
+                <a class="tab-item" href="{{superheroe.urls[2].url}}">
+                    <i class="icon ion-ios-book-outline"></i> Comic
+                </a>
+
             </div>
         </div>
+
+        <div class="list card">
+
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-ios-book"></i>
+                Comics
+            </a>
+
+            <ion-list>
+                <ion-item ng-repeat="comic in superheroeComics" href="#/app/comic/{{comic.id}}">
+                        <div class="item item-avatar">
+                            <img src="{{comic.thumbnail.path  +'.'+ comic.thumbnail.extension}}">
+                            <h2>{{comic.title}}</h2>
+                            <p>{{comic.dates[0].date}}</p>
+                        </div>
+                        <div class="item item-body" ng-if="comic.description != '' " >
+                        <p>
+                            {{comic.description}}
+                        </p>
+                    </div>
+                </ion-item>
+
+            </ion-list>
+
+
+
+        </div>
+
     </ion-content>
 </ion-view>
