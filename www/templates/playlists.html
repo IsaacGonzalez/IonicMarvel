@@ -1,77 +1,76 @@
 <ion-view view-title="Inicio">
-
-<style>
-	.box{
-		height: 300px;
-	}
-	.ironman{
-background-size: cover;
-		background-position: 50% 50%;
-		background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg);
-	}
-	.hulk{
-		background-size: cover;
-		background-position: 50% 50%;
-		background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0.jpg);
-	}
-	.wolverine{
-		background-size: cover;
-		background-position: 50% 50%;
-		background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/2/60/537bcaef0f6cf.jpg);
-	}
-	.thor {
-		background-size: cover;
-		background-position: 50% 50%;
-		background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg);
-	}
-</style>
-
-
-	<ion-content>
-
-	<!-- slider -->
-	 <ion-slide-box on-slide-changed="slideHasChanged($index)">
-			<ion-slide>
-				<div class="box slide ironman">
-				</div>
-			</ion-slide>  
-			<ion-slide>
-				<div class="box slide hulk">
-				</div>
-			</ion-slide>
-			<ion-slide>
-				<div class="box slide wolverine">
-				</div>
-			</ion-slide>
-			<ion-slide>
-				<div class="box slide thor">
-				</div>
-			</ion-slide>
-		</ion-slide-box>
-		<!-- /slider -->
-	 
-				<ion-list>
-						<ion-item ng-repeat="superheroe in superheroes" href="#/app/playlists/{{superheroe.id}}">
-								<div class="list card">
-										<div class="item ">
-												<h2>{{superheroe.name}}</h2>
-										</div>
-										<div class="item item-image">
-												<img src="{{superheroe.thumbnail.path + '.'+ superheroe.thumbnail.extension}}">
-										</div>
-										<div class="item tabs tabs-secondary tabs-icon-left">
-												<a class="tab-item" href="#">
-														<i class="icon ion-heart"></i> Me gusta
-												</a>
-												<a class="tab-item" href="#">
-														<i class="icon ion-plus-round"></i> Ver Más
-												</a>
-												<a class="tab-item" href="#">
-														<i class="icon ion-share"></i> Compartir
-												</a>
-										</div>
-								</div>
-						</ion-item>
-				</ion-list>
-		</ion-content>
+    <style>
+    .box {
+        height: 300px;
+    }
+    
+    .ironman {
+        background-size: cover;
+        background-position: 50% 50%;
+        background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg);
+    }
+    
+    .hulk {
+        background-size: cover;
+        background-position: 50% 50%;
+        background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0.jpg);
+    }
+    
+    .wolverine {
+        background-size: cover;
+        background-position: 50% 50%;
+        background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/2/60/537bcaef0f6cf.jpg);
+    }
+    
+    .thor {
+        background-size: cover;
+        background-position: 50% 50%;
+        background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg);
+    }
+    </style>
+    <ion-content>
+        <!-- slider -->
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div class="box slide ironman">
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box slide hulk">
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box slide wolverine">
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box slide thor">
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        <!-- /slider -->
+        <ion-list>
+            <ion-item ng-repeat="superheroe in superheroes" href="#/app/playlists/{{superheroe.id}}">
+                <div class="list card">
+                    <div class="item ">
+                        <h2>{{superheroe.name}}</h2>
+                    </div>
+                    <div class="item item-image">
+                        <img src="{{superheroe.thumbnail.path + '.'+ superheroe.thumbnail.extension}}">
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-heart"></i> Me gusta
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-plus-round"></i> Ver Más
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-share"></i> Compartir
+                        </a>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

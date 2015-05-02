@@ -14,6 +14,9 @@
                 <ion-item ng-repeat="superHeroe in superheroes" href="#/app/playlists/{{superHeroe.id}}">
                     {{superHeroe.name}}
                 </ion-item>
+                <div class="item item-text-wrap" ng-if="superheroes!=null && superheroes.length<=0 ">
+                    No se encontró ningún resultado
+                </div>
             </ion-list>
         </div>
     </ion-content>
