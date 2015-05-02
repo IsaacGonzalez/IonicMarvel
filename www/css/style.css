@@ -16,7 +16,7 @@ width: 100%;
 	background: url(http://cdn.screenrant.com/wp-content/uploads/marvel-logo-wallpaper.jpg)!important ;background-position: center!important ;background-size: 900px!important ;
 }
 .bar.bar-stable .title{
-	color: white !important;
+	color: white !important;text-shadow: 0px 0px 7px #000000;
 }
 .bar-stable .button.button-clear
 {
