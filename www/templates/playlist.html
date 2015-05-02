@@ -1,7 +1,7 @@
 <ion-view view-title="{{superheroe.name}}">
     <ion-content>
         <div class="list card">
-            <div class="item item-avatar" ng-if="superheroe.thumbnail" >
+            <div class="item item-avatar" ng-if="superheroe.thumbnail != null" >
                 <img src="{{superheroe.thumbnail.path + '.'+ superheroe.thumbnail.extension}}">
                 <h2>{{superheroe.name}}</h2>
                 <p>Ultima actualización: {{superheroe.modified  | date: 'dd/mm/yyyy' }}</p>
@@ -12,7 +12,7 @@
             </div>
             <div class="item item-body" ng-if="superheroe.description != '' " >
                 <p>
-                    {{superheroe.description}}
+                    {{superheroe.description | htmlToPlaintext }}
                 </p>
             </div>
             <div class="item tabs tabs-secondary tabs-icon-left">
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div class="list card">
+        <div class="list card" ng-if="superheroe.comics.items.length">
 
             <a href="#" class="item item-icon-left">
                 <i class="icon ion-ios-book"></i>
@@ -44,9 +44,9 @@
                             <h2>{{comic.title}}</h2>
                             <p>{{comic.dates[0].date}}</p>
                         </div>
-                        <div class="item item-body" ng-if="comic.description != '' " >
+                        <div class="item item-body" ng-if="comic.description != ''  " >
                         <p>
-                            {{comic.description}}
+                            {{comic.description | htmlToPlaintext}}
                         </p>
                     </div>
                 </ion-item>
