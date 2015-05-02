@@ -25,7 +25,8 @@ marvelApp.service('apiMarvelCharactersService', ['$http', '$log', 'apiMarvelConf
             ts: apiMarvelConfigService.marvelTimeStamp,
             apikey: apiMarvelConfigService.marvelPublicKey,
             hash: apiMarvelConfigService.marvelHash,
-            limit: "10"
+            limit: "10",
+            orderBy: "-modified"
         };
 
         var params = "?" + $.param(data);
@@ -58,6 +59,19 @@ marvelApp.service('apiMarvelCharactersService', ['$http', '$log', 'apiMarvelConf
         var params = "?" + $.param(data);
 
         return ($http.get(apiMarvelConfigService.marvelUrlAPI + '/comics/'+marvelComicId + params).then(handleSuccess, handleError));
+    };
+
+    this.getComicsBySuperheroe=function(marvelSuperHeroeId) {
+        var data = {
+            ts: apiMarvelConfigService.marvelTimeStamp,
+            apikey: apiMarvelConfigService.marvelPublicKey,
+            hash: apiMarvelConfigService.marvelHash,
+            limit: "1"
+        };
+
+        var params = "?" + $.param(data);
+
+        return ($http.get(apiMarvelConfigService.marvelUrlAPI + '/characters/' + marvelSuperHeroeId + '/comics' + params).then(handleSuccess, handleError));
     };
 
     function handleError(response) {

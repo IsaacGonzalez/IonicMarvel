@@ -1,4 +1,4 @@
-var marvelApp = angular.module('starter.controllers', ['marvelService']);
+var marvelApp = angular.module('starter.controllers', ['marvelService', 'ionic']);
 
 
 marvelApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -84,16 +84,24 @@ marvelApp.controller('BrowseCtrl', ['$scope', '$http', '$log', 'apiMarvelCharact
 
 }]);
 
-marvelApp.controller('PlaylistCtrl',['$scope', '$http', '$log','$stateParams', 'apiMarvelCharactersService', function($scope, $http, $log,$stateParams, apiMarvelCharactersService){
+marvelApp.controller('PlaylistCtrl',[
+    '$scope', '$http', '$log','$stateParams', 'apiMarvelCharactersService', '$ionicLoading', 
+    function($scope, $http, $log,$stateParams, apiMarvelCharactersService, $ionicLoading){
     // apiMarvelCharactersService.getTopTenCharacters($scope.superheroes);
     $log.info($stateParams);
     $scope.refreshHeroe = function() {
 
-        // The friendService returns a promise.
         apiMarvelCharactersService.getCharacter($stateParams.playlistId).then(function(superheroes) {
             $scope.superheroe = superheroes[0];
+            // $log.log('superheroes');
+            // $log.log(superheroes[0]);
+        });
+
+        apiMarvelCharactersService.getComicsBySuperheroe($stateParams.playlistId).then(function(comics) {
+            $scope.superheroeComics = comics;
+            // $log.log('comics');
+            // $log.log(comics);
         });
     }
     $scope.refreshHeroe();
-
 }]);
