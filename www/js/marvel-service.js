@@ -92,9 +92,9 @@ marvelApp.service('apiMarvelCharactersService', ['$http', '$log', 'apiMarvelConf
         if (!angular.isObject(response.data) ||
             !response.data.message
         ) {
-            return ($q.reject("An unknown error occurred."));
+            return null /* ($q.reject("An unknown error occurred.")) */;
         }
-        return ($q.reject(response.data.message));
+        return null /*($q.reject(response.data.message))*/;
 
     }
 
