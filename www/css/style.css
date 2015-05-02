@@ -37,3 +37,6 @@ width: 100%;
 		background-size: 1200px!important ;
 
 }
+.search-wrapper-light input, .search-wrapper-light input::-webkit-input-placeholder {
+    color: #ffffff;
+}

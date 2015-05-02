@@ -46,6 +46,20 @@ marvelApp.service('apiMarvelCharactersService', ['$http', '$log', 'apiMarvelConf
         return ($http.get(apiMarvelConfigService.marvelUrlAPI + '/characters/'+marvelSuperHeroeId + params).then(handleSuccess, handleError));
     };
 
+    this.getCharacterByName=function(marvelHeroeName) {
+        var data = {
+            ts: apiMarvelConfigService.marvelTimeStamp,
+            apikey: apiMarvelConfigService.marvelPublicKey,
+            hash: apiMarvelConfigService.marvelHash,
+            limit: "10",
+            nameStartsWith:marvelHeroeName
+        };
+
+        var params = "?" + $.param(data);
+
+        return ($http.get(apiMarvelConfigService.marvelUrlAPI + '/characters'+ params).then(handleSuccess, handleError));
+    };
+
 
     this.getComic=function(marvelComicId) {
         var data = {

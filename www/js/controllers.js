@@ -97,3 +97,15 @@ marvelApp.controller('PlaylistCtrl',['$scope', '$http', '$log','$stateParams', '
     $scope.refreshHeroe();
 
 }]);
+
+marvelApp.controller('SearchCtrl',['$scope', '$http', '$log','$stateParams', 'apiMarvelCharactersService', function($scope, $http, $log,$stateParams, apiMarvelCharactersService){
+    $scope.superHereoName='';
+    $scope.searchSuperHeroe = function(superHereoName) {
+        // The friendService returns a promise.
+        apiMarvelCharactersService.getCharacterByName(superHereoName).then(function(superheroes) {
+            $scope.superheroes = superheroes;
+            $log.info(superheroes);
+        });
+    }
+
+}]);
