@@ -1,7 +1,13 @@
 var marvelApp = angular.module('starter.controllers', ['marvelService', 'ionic']);
 
+marvelApp.filter('htmlToPlaintext', function() {
+    return function(text) {
+      return String(text).replace(/<[^>]+>/gm, '');
+    }
+});
 
-marvelApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+marvelApp.controller('AppCtrl', 
+    function($scope, $ionicModal, $timeout) {
     // Form data for the login modal
     $scope.loginData = {};
 
@@ -24,7 +30,7 @@ marvelApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
     // Perform the login action when the user submits the login form
     $scope.doLogin = function() {
-        console.log('Doing login', $scope.loginData);
+        // console.log('Doing login', $scope.loginData);
 
 
         // Simulate a login delay. Remove this and replace with your login
@@ -36,7 +42,9 @@ marvelApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 });
 
 
-marvelApp.controller('PlaylistsCtrl', ['$scope', '$http', '$log', 'apiMarvelCharactersService', function($scope, $http, $log, apiMarvelCharactersService) {
+marvelApp.controller('PlaylistsCtrl', [
+    '$scope', '$http', '$log', 'apiMarvelCharactersService', 
+    function($scope, $http, $log, apiMarvelCharactersService) {
 
     $scope.superheroes = [];
     // apiMarvelCharactersService.getTopTenCharacters($scope.superheroes);
@@ -51,7 +59,9 @@ marvelApp.controller('PlaylistsCtrl', ['$scope', '$http', '$log', 'apiMarvelChar
     $scope.refreshTopTenSuperHeroes();
 
 }]);
-marvelApp.controller('BrowseCtrl', ['$scope', '$http', '$log', 'apiMarvelCharactersService', function($scope, $http, $log, apiMarvelCharactersService) {
+marvelApp.controller('BrowseCtrl', [
+    '$scope', '$http', '$log', 'apiMarvelCharactersService', 
+    function($scope, $http, $log, apiMarvelCharactersService) {
 
     $scope.refreshComic = function() {
 
@@ -81,14 +91,13 @@ marvelApp.controller('BrowseCtrl', ['$scope', '$http', '$log', 'apiMarvelCharact
         });
     }
     $scope.refreshComic();
-
 }]);
 
 marvelApp.controller('PlaylistCtrl',[
     '$scope', '$http', '$log','$stateParams', 'apiMarvelCharactersService', '$ionicLoading', 
     function($scope, $http, $log,$stateParams, apiMarvelCharactersService, $ionicLoading){
     // apiMarvelCharactersService.getTopTenCharacters($scope.superheroes);
-    $log.info($stateParams);
+    // $log.info($stateParams);
     $scope.refreshHeroe = function() {
 
         apiMarvelCharactersService.getCharacter($stateParams.playlistId).then(function(superheroes) {
@@ -106,13 +115,15 @@ marvelApp.controller('PlaylistCtrl',[
     $scope.refreshHeroe();
 }]);
 
-marvelApp.controller('SearchCtrl',['$scope', '$http', '$log','$stateParams', 'apiMarvelCharactersService', function($scope, $http, $log,$stateParams, apiMarvelCharactersService){
+marvelApp.controller('SearchCtrl',[
+    '$scope', '$http', '$log','$stateParams', 'apiMarvelCharactersService', 
+    function($scope, $http, $log,$stateParams, apiMarvelCharactersService){
     $scope.superHereoName='';
     $scope.searchSuperHeroe = function(superHereoName) {
         // The friendService returns a promise.
         apiMarvelCharactersService.getCharacterByName(superHereoName).then(function(superheroes) {
             $scope.superheroes = superheroes;
-            $log.info(superheroes);
+            // $log.info(superheroes);
         });
     }
 
