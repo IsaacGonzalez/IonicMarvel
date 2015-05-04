@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.marvel290671" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>marvel</name>
+<widget id="com.inercy.marvel" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Marvel Lite Wiki</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Wiki ligero que consume el API de marvel. Creado con Ionic Framework
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="isaac.gonzalez@inercy.com" href="http://inercy.com/">
+      Inercy
     </author>
   <content src="index.html"/>
   <access origin="*"/>
